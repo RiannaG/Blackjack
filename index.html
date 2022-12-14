@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blackjack</title>
+  </head>
+  <body>
+    <h1>Blackjack</h1>
+
+    <h2 id="cards-value"></h2>
+    <div style="display: flex">
+      <h3 id="nCards-message"></h3>
+      <h3 id="card-number"></h3>
+    </div>
+
+    <div style="display: flex; gap: 15px">
+      <button onclick="drawCards()" id="draw-btn">Draw</button>
+
+      <h3 id="result-message"></h3>
+    </div>
+    <button id="stop-btn"><a href="">Play again</a></button>
+
+    <h2 id="casino-cards-value"></h2>
+    <script src="index.js"></script>
+  </body>
+</html>
