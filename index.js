@@ -38,6 +38,11 @@ function drawCards(y) {
     drawCasinoCards(y);
   }
 }
+//Adding stop function to end the game with 2 cards and disable de draw button
+function stopCards() {
+  drawBtn.hidden = true;
+  calculateWinner();
+}
 
 //Calculate the sum for the Casino
 let casinoCardsValueContainer = document.getElementById("casino-cards-value");
