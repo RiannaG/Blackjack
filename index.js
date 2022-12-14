@@ -25,7 +25,10 @@ function drawCards(y) {
     thirdCard = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
     sum = firstCard + secondCard + thirdCard;
     cardsValueContainer.textContent = sum;
-    drawCasinoCards(y);
+    //The casino can chose if draw the third card
+    if (casinoSum < 13) {
+      drawCasinoOneCard();
+    }
     calculateWinner();
     i++;
   } else {
@@ -35,12 +38,16 @@ function drawCards(y) {
     sum = firstCard + secondCard;
     cardsValueContainer.textContent = sum;
     i++;
-    drawCasinoCards(y);
+    drawCasinoTwoCards(y);
+    return casinoSum;
   }
 }
 //Adding stop function to end the game with 2 cards and disable de draw button
 function stopCards() {
   drawBtn.hidden = true;
+  if (casinoSum < 15) {
+    drawCasinoOneCard();
+  }
   calculateWinner();
 }
 
@@ -54,37 +61,27 @@ let casinoSecondCard;
 let casinoThirdCard;
 let casinoSum;
 
-function drawCasinoCards() {
+function drawCasinoTwoCards() {
   casinoNcardsContainer.textContent = "Numbers of cards: ";
-  if (y == 1) {
-    casinoCardNumber.textContent = "3";
-    casinoThirdCard =
-      Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
-    casinoSum = casinoFirstCard + casinoSecondCard + casinoThirdCard;
-    casinoCardsValueContainer.textContent = casinoSum;
-    console.log("casino draw 1 card");
-  } else {
-    casinoCardNumber.textContent = "2";
-    casinoFirstCard =
-      Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
-    casinoSecondCard =
-      Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
-    casinoSum = casinoFirstCard + casinoSecondCard;
-    casinoCardsValueContainer.textContent = casinoSum;
-    y++;
-    console.log("casino draw 2 card");
-  }
+  casinoCardNumber.textContent = "2";
+  casinoFirstCard =
+    Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+  casinoSecondCard =
+    Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+  casinoSum = casinoFirstCard + casinoSecondCard;
+  casinoCardsValueContainer.textContent = casinoSum;
+  y++;
+  console.log("casino draw 2 card");
 }
-// console.log(sum);
-// function displayResult(sum) {
-//   if (sum == 21) {
-//     resultContainer.textContent = "Blackjack";
-//   } else if (sum > 21) {
-//     resultContainer.textContent = "You loose";
-//   } else if (sum < 21) {
-//     resultContainer.textContent = "draw another card or stop";
-//   }
-// }
+
+function drawCasinoOneCard() {
+  casinoCardNumber.textContent = "3";
+  casinoThirdCard =
+    Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+  casinoSum = casinoFirstCard + casinoSecondCard + casinoThirdCard;
+  casinoCardsValueContainer.textContent = casinoSum;
+  console.log("casino draw 1 card");
+}
 
 function calculateWinner() {
   if (sum > 21) {
