@@ -41,6 +41,8 @@ function drawCards(y) {
 
 //Calculate the sum for the Casino
 let casinoCardsValueContainer = document.getElementById("casino-cards-value");
+let casinoNcardsContainer = document.getElementById("nCards-message2");
+let casinoCardNumber = document.getElementById("casino-card-number");
 
 let casinoFirstCard;
 let casinoSecondCard;
@@ -48,13 +50,16 @@ let casinoThirdCard;
 let casinoSum;
 
 function drawCasinoCards() {
+  casinoNcardsContainer.textContent = "Numbers of cards: ";
   if (y == 1) {
+    casinoCardNumber.textContent = "3";
     casinoThirdCard =
       Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
     casinoSum = casinoFirstCard + casinoSecondCard + casinoThirdCard;
     casinoCardsValueContainer.textContent = casinoSum;
     console.log("casino draw 1 card");
   } else {
+    casinoCardNumber.textContent = "2";
     casinoFirstCard =
       Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
     casinoSecondCard =

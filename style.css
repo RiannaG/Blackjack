@@ -1,0 +1,24 @@
+body {
+  background-color: rgb(45, 140, 13);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section {
+  height: 500px;
+  width: 80vw;
+  background-color: bisque;
+  justify-content: center;
+}
+.game-container {
+  display: flex;
+  justify-content: space-around;
+  min-height: 200px;
+}
+.comands-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
